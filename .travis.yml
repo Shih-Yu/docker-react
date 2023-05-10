@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - doc build -t shreezel/docker-react -f Dockerfile.dev .
+
+script: 
+  - docker run -e CI=true shreezel/docker-react npm run test
